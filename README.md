@@ -9,7 +9,7 @@ Features include:
  * Share a directory and it's sub directories over HTTP.
  * Serve only one specified file.
  * Receive files via a simple html form to upload files via /upload
- * Disable upload functionality
+ * Enable upload functionality
  * More to come..
 
 
@@ -20,7 +20,7 @@ Usage:
         -f="index.html": restrict to one file
         -h=false: show this help
         -host="0.0.0.0:8080": listening port and hostname
-        -n=false: only allow downloads
+        -u=false: allow upload
 
 Example:
 
