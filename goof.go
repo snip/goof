@@ -61,7 +61,7 @@ const (
 
 var (
 	host          = flag.String("host", "0.0.0.0:8080", "listening port and hostname")
-	noUpload      = flag.Bool("n", false, "only allow downloads")
+	upload        = flag.Bool("u", false, "Allow downloads")
 	help          = flag.Bool("h", false, "show this help")
 	onlyFile      = flag.String("f", onlyFileDefault, "restrict to one file")
 	downloadCount = flag.Int("d", downloadCountDefault, "Max number of downloads")
@@ -185,8 +185,8 @@ func main() {
 
 	log.SetFlags(log.Lshortfile | log.LstdFlags)
 
-	// if flag is set we don't register the uploadHandler
-	if *noUpload == false || *onlyFile != onlyFileDefault {
+	// if flag is set we register the uploadHandler
+	if *upload == true || *onlyFile != onlyFileDefault {
 		http.HandleFunc("/upload", makeHandler(uploadHandler))
 	}
 	http.Handle("/", makeHandler(myFileServer))
